@@ -75,5 +75,5 @@ def json_divide_view(request, *args, **kwargs):
             return response
         except TypeError:
             response = JsonResponse({'error': "You must input the numbers!"})
-        response.status_code = 400
+            response.status_code = 400
         return response

@@ -4,15 +4,15 @@ async function AddClick(event) {
         let A = document.getElementsByTagName('input')[0].value;
         let B = document.getElementsByTagName('input')[1].value;
         let response = await makeRequest('http://localhost:8000/add/', 'POST', {'A': A, 'B': B});
-        let data = await response.text();
+        let data = await response.json();
         let p = document.createElement('p');
-        p.innerHTML = data;
+        p.innerHTML = data.answer;
         p.style.color = "black";
         let place = document.querySelectorAll('.place')[0];
         place.innerHTML = '';
         place.appendChild(p);
     } catch (error) {
-        console.log(error);
+        console.log(response);
     }
 }
 
@@ -25,9 +25,9 @@ async function SubtractClick(event) {
         let A = document.getElementsByTagName('input')[0].value;
         let B = document.getElementsByTagName('input')[1].value;
         let response = await makeRequest('http://localhost:8000/subtract/', 'POST', {'A': A, 'B': B});
-        let data = await response.text();
+        let data = await response.json();
         let p = document.createElement('p');
-        p.innerHTML = data;
+        p.innerHTML = data.answer;
         p.style.color = "black";
         place.appendChild(p);
     } catch (error) {
@@ -40,16 +40,17 @@ async function MultilplyClick(event) {
     try {
         let A = document.getElementsByTagName('input')[0].value;
         let B = document.getElementsByTagName('input')[1].value;
-        let response = await makeRequest('http://localhost:8000/multilply/', 'POST', {'A': A, 'B': B});
-        let data = await response.text();
+        let response = await makeRequest('http://localhost:8000/multiply/', 'POST', {'A': A, 'B': B});
+        let data = await response.json();
         let p = document.createElement('p');
-        p.innerHTML = data;
+        p.innerHTML = data.answer;
         p.style.color = "black";
         let place = document.querySelectorAll('.place')[0];
         place.innerHTML = '';
         place.appendChild(p);
     } catch (error) {
-        console.log(error);
+        p.style.color = "black";
+        console.log(response);
     }
 }
 
@@ -62,9 +63,9 @@ async function DivideClick(event) {
         let A = document.getElementsByTagName('input')[0].value;
         let B = document.getElementsByTagName('input')[1].value;
         let response = await makeRequest('http://localhost:8000/divide/', 'POST', {'A': A, 'B': B});
-        let data = await response.text();
+        let data = await response.json();
         let p = document.createElement('p');
-        p.innerHTML = data;
+        p.innerHTML = data.answer;
         p.style.color = "black";
         place.appendChild(p);
     } catch (error) {
