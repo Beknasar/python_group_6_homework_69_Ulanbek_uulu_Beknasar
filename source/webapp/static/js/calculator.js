@@ -5,14 +5,15 @@ async function AddClick(event) {
         let B = document.getElementsByTagName('input')[1].value;
         let response = await makeRequest('http://localhost:8000/add/', 'POST', {'A': A, 'B': B});
         let data = await response.json();
+        console.log(data)
         let p = document.createElement('p');
         p.innerHTML = data.answer;
-        p.style.color = "black";
+        p.style.color = "green";
         let place = document.querySelectorAll('.place')[0];
         place.innerHTML = '';
         place.appendChild(p);
     } catch (error) {
-        console.log(response);
+        console.log(error);
     }
 }
 
@@ -28,7 +29,7 @@ async function SubtractClick(event) {
         let data = await response.json();
         let p = document.createElement('p');
         p.innerHTML = data.answer;
-        p.style.color = "black";
+        p.style.color = "green";
         place.appendChild(p);
     } catch (error) {
         console.log(error);
@@ -44,13 +45,12 @@ async function MultilplyClick(event) {
         let data = await response.json();
         let p = document.createElement('p');
         p.innerHTML = data.answer;
-        p.style.color = "black";
+        p.style.color = "green";
         let place = document.querySelectorAll('.place')[0];
         place.innerHTML = '';
         place.appendChild(p);
     } catch (error) {
-        p.style.color = "black";
-        console.log(response);
+        console.log(error)
     }
 }
 
@@ -66,7 +66,7 @@ async function DivideClick(event) {
         let data = await response.json();
         let p = document.createElement('p');
         p.innerHTML = data.answer;
-        p.style.color = "black";
+        p.style.color = "green";
         place.appendChild(p);
     } catch (error) {
         console.log(error);
