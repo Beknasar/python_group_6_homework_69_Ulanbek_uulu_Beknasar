@@ -21,11 +21,11 @@ def json_add_view(request, *args, **kwargs):
         answer = {}
         try:
             data = json.loads(request.body)
-            print(data)
-            answer['answer'] = data['A'] + data['B']
+            # print(data)
+            answer['answer'] = float(data['A']) + float(data['B'])
             return JsonResponse(answer)
-        except:
-            response = JsonResponse({'error': "Division by zero!"})
+        except TypeError:
+            response = JsonResponse({'error': "You must input the numbers!"})
             response.status_code = 400
             return response
 
@@ -36,11 +36,11 @@ def json_subtract_view(request, *args, **kwargs):
         answer = {}
         try:
             data = json.loads(request.body)
-            print(data)
-            answer['answer'] = data['A'] - data['B']
+            # print(data)
+            answer['answer'] = float(data['A']) - float(data['B'])
             return JsonResponse(answer)
-        except:
-            response = JsonResponse({'error': "Division by zero!"})
+        except TypeError:
+            response = JsonResponse({'error': "You must input the numbers!"})
             response.status_code = 400
             return response
 
@@ -51,11 +51,11 @@ def json_multiply_view(request, *args, **kwargs):
         answer = {}
         try:
             data = json.loads(request.body)
-            print(data)
-            answer['answer'] = data['A'] * data['B']
+            # print(data)
+            answer['answer'] = float(data['A']) * float(data['B'])
             return JsonResponse(answer)
-        except:
-            response = JsonResponse({'error': "Division by zero!"})
+        except TypeError:
+            response = JsonResponse({'error': "You must input the numbers!"})
             response.status_code = 400
             return response
 
@@ -66,10 +66,14 @@ def json_divide_view(request, *args, **kwargs):
         answer = {}
         try:
             data = json.loads(request.body)
-            print(data)
-            answer['answer'] = data['A'] / data['B']
+            # print(data)
+            answer['answer'] = float(data['A']) / float(data['B'])
             return JsonResponse(answer)
-        except:
+        except ZeroDivisionError:
             response = JsonResponse({'error': "Division by zero!"})
             response.status_code = 400
             return response
+        except TypeError:
+            response = JsonResponse({'error': "You must input the numbers!"})
+        response.status_code = 400
+        return response

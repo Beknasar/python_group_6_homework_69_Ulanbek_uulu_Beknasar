@@ -11,20 +11,20 @@
         <div class="input-group-prepend">
             <span class="input-group-text ">A</span>
         </div>
-        <input type="text" class="form-control mr-3 rounded-right" required>
+        <input id='A' type="text" class="form-control mr-3 rounded-right" required>
         <div class="invalid-feedback">
             Please choose a username.
         </div>
         <div class="input-group-prepend">
             <span class="input-group-text">B</span>
         </div>
-        <input type="text" class="form-control rounded-right" required>
+        <input id='B' type="text" class="form-control rounded-right" required>
     </div>
     <div class="mt-3">
-        <button id='add' type="button" class="btn btn-dark px-3">+</button>
-        <button id='subtract' type="button" class="btn btn-dark px-3">-</button>
-        <button id='multiply' type="button" class="btn btn-dark px-3">*</button>
-        <button id='divide' type="button" class="btn btn-dark px-3">/</button>
+        <button id='add' type="button" class="btn btn-dark px-3" onclick="{% url "add" %}">+</button>
+        <button id='subtract' type="button" class="btn btn-dark px-3" onclick="{% url "subtract" %}">-</button>
+        <button id='multiply' type="button" class="btn btn-dark px-3" onclick="{% url "multiply" %}">*</button>
+        <button id='divide' type="button" class="btn btn-dark px-3" onclick="{% url "divide" %}">/</button>
     </div>
     <div class="place p-3 mt-3">
 
