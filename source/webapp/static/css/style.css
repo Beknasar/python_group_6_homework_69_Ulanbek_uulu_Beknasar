@@ -1,0 +1,29 @@
+body {
+    /*font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;*/
+    /*font-size: 16px;*/
+    /*background: #e1e7ed;*/
+    display: inline-block;
+    background-image: url(https://images.wallpaperscraft.ru/image/tumannost_zvezdy_vselennaia_189621_1920x1080.jpg);
+    background-color: transparent;
+    background-size: cover;
+    opacity: 1;
+    visibility: visible;
+    color: white;
+}
+
+
+.container {
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+
+.place {
+    height: 0 auto;
+    max-height: 500px;
+    border: solid 3px gray;
+    border-radius: 25px;
+    background-color: #FFFAF0;
+}

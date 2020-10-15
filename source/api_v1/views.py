@@ -5,6 +5,10 @@ from django.http import HttpResponse, HttpResponseNotAllowed, JsonResponse, Http
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 
+def index_view(request):
+    return render(request, 'index.html')
+
+
 def get_token_view(request, *args, **kwargs):
     if request.method == 'GET':
         return HttpResponse()
